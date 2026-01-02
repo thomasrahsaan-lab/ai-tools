@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The 70-Year Secret: AI's Hidden History</title>
+    <!-- Modern Typography Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text: #1a1a1a;
+            --text-secondary: #444444;
+            --accent: #2563eb;
+            --margin: 2rem;
+            --max-width: 720px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            padding: 6rem 1.5rem;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        header {
+            margin-bottom: 5rem;
+        }
+
+        .category {
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            color: var(--text);
+            letter-spacing: -0.02em;
+        }
+
+        .intro-lead {
+            font-size: 1.5rem;
+            line-height: 1.5;
+            font-weight: 500;
+            color: var(--text);
+            margin-bottom: 4rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        /* Content Styles */
+        .content section {
+            margin-bottom: 4rem;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin: 4rem 0 1.5rem;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+        }
+
+        p {
+            margin-bottom: 1.75rem;
+            font-size: 1.18rem;
+            color: var(--text-secondary);
+        }
+
+        strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        ul {
+            list-style: none;
+            margin: 2rem 0 3rem;
+        }
+
+        li {
+            margin-bottom: 2rem;
+            padding-left: 2rem;
+            position: relative;
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+        }
+
+        li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.8em;
+            width: 1rem;
+            height: 1px;
+            background-color: var(--accent);
+        }
+
+        /* Highlights */
+        .highlight-box {
+            background: #fbfbfb;
+            border-radius: 0px;
+            padding: 3rem;
+            margin: 4rem 0;
+            border-left: 4px solid var(--accent);
+        }
+
+        .highlight-box h3 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+        }
+
+        /* Footer / CTA */
+        footer {
+            margin-top: 8rem;
+            padding-top: 4rem;
+            border-top: 1px solid #eee;
+            text-align: center;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--text);
+            color: white;
+            padding: 1.25rem 2.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 2rem;
+            letter-spacing: 0.02em;
+        }
+
+        .cta-button:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.15);
+        }
+
+        .back-link {
+            display: block;
+            margin-top: 3rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .back-link:hover {
+            opacity: 1;
+            color: var(--accent);
+        }
+
+        /* Custom Scrollbar for a premium feel */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent);
+        }
+
+        /* Responsive Tweaks */
+        @media (max-width: 640px) {
+            body {
+                padding: 4rem 1.25rem;
+            }
+
+            h1 {
+                font-size: 2.75rem;
+            }
+
+            .intro-lead {
+                font-size: 1.35rem;
+            }
+
+            .highlight-box {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <span class="category">Perspectives</span>
+            <h1>The 70-Year Secret: AI's Hidden History</h1>
+        </header>
+
+        <article class="content">
+            <p class="intro-lead">
+                Most people think artificial intelligence burst onto the scene with ChatGPT in 2022. They're off by
+                about seven decades.
+            </p>
+
+            <p>
+                The truth is, AI has been quietly shaping our world since <strong>1956</strong>, when a small group of
+                scientists gathered at Dartmouth College for a summer workshop that would change everything. While the
+                general public was just getting used to television, researchers were already dreaming of machines that
+                could think.
+            </p>
+
+            <section>
+                <h2>The Dartmouth Moment</h2>
+                <p>
+                    In the summer of 1956, John McCarthy, Marvin Minsky, Claude Shannon, and Nathaniel Rochester
+                    organized what's now considered the birth of AI as a formal field of study. They proposed that
+                    "every aspect of learning or any other feature of intelligence can in principle be so precisely
+                    described that a machine can be made to simulate it."
+                </p>
+                <p>
+                    That wasn't just academic speculation. It was a declaration of intent that governments and
+                    corporations took very seriously.
+                </p>
+            </section>
+
+            <section>
+                <h2>The Decades You Didn't Hear About</h2>
+                <p>While most of us were living our lives, AI was working behind the scenes:</p>
+
+                <ul>
+                    <li>
+                        <strong>The 1960s-70s:</strong> The Department of Defense poured millions into AI research
+                        through DARPA. Early expert systems began making decisions in specialized domains. Meanwhile,
+                        the public was still marveling at pocket calculators.
+                    </li>
+                    <li>
+                        <strong>The 1980s:</strong> Major corporations like IBM, DEC, and Xerox invested heavily in AI
+                        systems for internal use. Expert systems started diagnosing diseases and configuring computer
+                        systems. The technology existed, but it lived in corporate labs and government facilities, not
+                        in homes.
+                    </li>
+                    <li>
+                        <strong>The 1990s-2000s:</strong> Machine learning algorithms were already powering fraud
+                        detection in banks, optimizing supply chains for retailers, and filtering your spam email.
+                        Google's search engine? Built on AI from day one in 1998.
+                    </li>
+                    <li>
+                        <strong>The 2010s:</strong> AI was everywhere and nowhere. It was recommending your Netflix
+                        shows, tagging your Facebook photos, routing your Uber rides, and screening job applications.
+                        But it worked invisibly, never announcing itself.
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Why the Secrecy?</h2>
+                <p>It wasn't exactly a conspiracy, but there were reasons this history stayed quiet:</p>
+
+                <p>
+                    <strong>Competitive advantage:</strong> Companies using AI had a massive edge and weren't eager to
+                    advertise their methods. Why would a hedge fund reveal the algorithms making them millions?
+                </p>
+
+                <p>
+                    <strong>Government applications:</strong> Military and intelligence uses of AI remained classified.
+                    Pattern recognition for surveillance, logistics optimization for operations, strategic planning
+                    systems—all hidden behind security clearances.
+                </p>
+
+                <p>
+                    <strong>The "AI Winter" effect:</strong> AI went through periods of overhype followed by
+                    disappointment. Companies learned to call it "machine learning," "analytics," or "intelligent
+                    systems" instead.
+                </p>
+            </section>
+
+            <div class="highlight-box">
+                <h3>The Great Reveal</h3>
+                <p>
+                    What changed? A few things converged: Cloud computing made massive processing power cheap.
+                    Open-source frameworks democratized the tools. And critically, large language models became good
+                    enough to feel like magic.
+                </p>
+                <p>
+                    When ChatGPT launched in November 2022, it wasn't introducing AI to the world. It was
+                    <strong>introducing the world to AI</strong>.
+                </p>
+            </div>
+
+            <section>
+                <h2>What This Means For You</h2>
+                <p>
+                    <strong>AI isn't experimental anymore.</strong> It's been battle-tested across decades in
+                    high-stakes environments. The systems making decisions about your credit or medical diagnosis aren't
+                    beta products—they're refined versions of decades-old technology.
+                </p>
+                <p>
+                    <strong>The infrastructure was already built.</strong> When AI seemed to "suddenly" take over, it
+                    wasn't magic. It was the visible tip of an iceberg that had been growing for generations.
+                </p>
+            </section>
+
+            <section>
+                <h2>The Real Story</h2>
+                <p>
+                    AI didn't start two years ago with a clever chatbot. It started with scientists who believed
+                    machines could learn, governments that funded that belief into reality, and corporations that turned
+                    that reality into profit. For 70 years, AI has been the secret engine running increasingly large
+                    parts of our world.
+                </p>
+                <p>
+                    The only thing that's new is that now everyone can see it.
+                </p>
+                <p>
+                    <em>The 70-year secret is out. The question is: what do we do with the next 70 years?</em>
+                </p>
+            </section>
+        </article>
+
+        <footer>
+            <p>Ready to master the secret history for your own workflow?</p>
+            <a href="index.html" class="cta-button">Access the AI Solutions Finder</a>
+            <a href="index.html" class="back-link">← Return to Dashboard</a>
+        </footer>
+    </div>
+
+</body>
+
+</html>
