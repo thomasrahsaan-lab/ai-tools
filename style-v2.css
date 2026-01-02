@@ -604,16 +604,14 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.95);
+    background: rgba(0, 0, 0, 0.9);
     display: none;
     align-items: center;
-    /* Center vertically if content small */
     justify-content: center;
     z-index: 9999;
-    /* Highest possible */
     padding: 10px;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
+    overflow: hidden;
+    /* Prevent background scroll */
 }
 
 .modal-overlay.active {
@@ -626,11 +624,11 @@ body {
     border-radius: var(--radius-xl);
     max-width: 1000px;
     width: 100%;
-    margin: auto 0;
-    /* Vertical centering helper for flex-start */
-    max-height: none;
-    /* Let the overlay handle long scrolls */
-    overflow: visible;
+    max-height: 90vh;
+    /* Keep it within view */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
 
 .modal-header {
@@ -657,6 +655,9 @@ body {
 
 .modal-body {
     padding: var(--spacing-lg);
+    overflow-y: auto;
+    /* Scroll content inside modal */
+    flex: 1;
 }
 
 .comparison-grid {
@@ -906,52 +907,49 @@ body {
 /* Redefining Comparison Grid for Horizontal Mobile Swipe */
 @media (max-width: 768px) {
     .modal-overlay {
-        align-items: flex-start !important;
-        padding: 10px !important;
-        z-index: 9999 !important;
+        padding: 5px;
     }
 
     .modal {
         width: 100% !important;
-        margin: 0 !important;
-        border-radius: 12px !important;
-        overflow: hidden !important;
+        max-height: 95vh !important;
+        border-radius: var(--radius-lg);
     }
 
     .modal-body {
-        padding: 15px !important;
-        overflow: visible !important;
-        -webkit-overflow-scrolling: touch !important;
+        padding: 10px !important;
+        overflow-x: hidden !important;
+        /* Contain the horizontal swipe container */
     }
 
     .comparison-grid {
         display: flex !important;
         flex-direction: row !important;
         flex-wrap: nowrap !important;
-        overflow-x: scroll !important;
-        /* Force scroll */
+        overflow-x: auto !important;
         -webkit-overflow-scrolling: touch !important;
         gap: 15px !important;
-        padding-bottom: 25px !important;
+        padding-bottom: 20px !important;
         scroll-snap-type: x mandatory !important;
         width: 100% !important;
-        touch-action: pan-x !important;
-        /* Force horizontal swipe */
-        pointer-events: auto !important;
-        /* Ensure interaction */
+        cursor: grab;
     }
 
     .comparison-card {
         flex: 0 0 85% !important;
         scroll-snap-align: center !important;
         min-width: 270px !important;
-        pointer-events: auto !important;
     }
 
     .champion-badge,
     .challenger-badge {
         font-size: 0.7rem !important;
-        white-space: nowrap !important;
+        padding: 4px 10px !important;
+    }
+
+    .btn-sm {
+        padding: 12px !important;
+        font-size: 1rem !important;
     }
 
     .lean-metric-description {
