@@ -60,6 +60,8 @@ body {
 
 .section {
     padding: var(--spacing-2xl) 0;
+    padding-bottom: 200px;
+    /* Force clearance for fixed mobile footer */
 }
 
 /* ============================================
