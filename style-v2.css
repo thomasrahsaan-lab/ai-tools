@@ -909,13 +909,14 @@ body {
         flex-wrap: nowrap !important;
         overflow-x: auto !important;
         gap: var(--spacing-sm) !important;
-        padding: var(--spacing-md) !important;
+        padding: var(--spacing-sm) !important;
         scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
         justify-content: flex-start !important;
-        width: 100vw;
-        margin-left: calc(-1 * var(--spacing-sm));
-        /* Counter padding */
+        width: 100% !important;
+        /* Changed from 100vw to 100% to stay in container */
+        pointer-events: auto !important;
+        /* Ensure interaction */
     }
 
     .comparison-card {
@@ -928,7 +929,9 @@ body {
 
     .modal-body {
         padding: var(--spacing-sm);
-        overflow-x: hidden;
+        overflow-x: visible;
+        /* Allow horizontal scroll of child grid */
+        -webkit-overflow-scrolling: touch;
     }
 
     .champion-badge,
