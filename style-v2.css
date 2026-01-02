@@ -62,8 +62,14 @@ body {
 
 .section {
     padding: var(--spacing-2xl) 0;
-    padding-bottom: 200px;
-    /* Force clearance for fixed mobile footer */
+    /* Force body clearance for mobile fixed footer */
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
+.mobile-spacer {
+    height: 150px;
+    width: 100%;
+    display: block;
 }
 
 /* ============================================
