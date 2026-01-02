@@ -609,11 +609,11 @@ body {
     align-items: center;
     /* Center vertically if content small */
     justify-content: center;
-    z-index: 5000;
-    /* Extremely high to overrule everything */
-    padding: var(--spacing-md);
+    z-index: 9999;
+    /* Highest possible */
+    padding: 10px;
     overflow-y: auto;
-    /* Master vertical scroll */
+    -webkit-overflow-scrolling: touch;
 }
 
 .modal-overlay.active {
@@ -907,20 +907,21 @@ body {
 @media (max-width: 768px) {
     .modal-overlay {
         align-items: flex-start;
-        /* Switch to top for mobile to allow natural scroll */
-        padding: 10px;
+        padding-top: 5vh;
     }
 
     .modal {
         width: 100% !important;
-        margin: 20px 0 !important;
-        border-radius: var(--radius-lg);
+        max-width: 100% !important;
+        margin: 0 !important;
+        border-radius: 20px 20px 0 0;
+        position: relative;
         max-height: none !important;
         background: var(--color-bg-elevated);
     }
 
     .modal-body {
-        padding: 12px !important;
+        padding: 15px !important;
         overflow: visible !important;
     }
 
@@ -929,19 +930,22 @@ body {
         flex-direction: row !important;
         flex-wrap: nowrap !important;
         overflow-x: auto !important;
-        gap: 12px !important;
-        padding: 5px 5px 20px 5px !important;
         scroll-snap-type: x mandatory !important;
-        width: 100% !important;
         -webkit-overflow-scrolling: touch !important;
+        gap: 15px !important;
+        padding-bottom: 30px !important;
+        width: 100% !important;
+        pointer-events: auto !important;
         position: relative;
     }
 
     .comparison-card {
-        flex: 0 0 88% !important;
-        /* Show most of card, peek at next */
+        flex: 0 0 85% !important;
+        /* Forces cards side-by-side */
+        width: 85% !important;
         scroll-snap-align: center !important;
-        min-width: 280px !important;
+        min-width: 270px !important;
+        pointer-events: auto !important;
         border: 1px solid rgba(255, 255, 255, 0.1);
         position: relative;
         background: rgba(255, 255, 255, 0.03);
@@ -949,7 +953,8 @@ body {
 
     .champion-badge,
     .challenger-badge {
-        font-size: 0.65rem !important;
+        font-size: 0.7rem !important;
+        top: -10px !important;
         white-space: nowrap;
     }
 
@@ -960,10 +965,13 @@ body {
 
     .lean-metric-description {
         display: none;
-        /* Hide description on mobile to save massive vertical space */
     }
 
     .modal-actions .btn-text {
         font-size: 0.8rem;
+    }
+
+    .modal-header .modal-title {
+        font-size: 1.25rem;
     }
 }
