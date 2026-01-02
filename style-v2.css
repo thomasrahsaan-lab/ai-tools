@@ -804,6 +804,55 @@ body {
     border: none;
     box-shadow: 0 4px 6px -1px rgba(99, 102, 241, 0.3);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+}
+
+/* ============================================
+   King of the Hill (Tournament) Mode
+   ============================================ */
+.challenger-card {
+    border: 2px solid var(--color-warning);
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(245, 158, 11, 0.05) 100%);
+    order: 3;
+    /* Ensure it stays at the end if flex */
+}
+
+.champion-badge,
+.challenger-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+.champion-badge {
+    background: var(--color-success);
+    color: #fff;
+}
+
+.challenger-badge {
+    background: var(--color-warning);
+    color: #fff;
+    width: max-content;
+}
+
+.btn-warning {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--color-error);
+    border: 1px solid var(--color-error);
+    transition: all 0.2s ease;
+}
+
+.btn-warning:hover {
+    background: var(--color-error);
+    color: white;
 }
 
 #save-stack-btn:hover {

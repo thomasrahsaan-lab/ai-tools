@@ -1929,39 +1929,11 @@ function renderProducts() {
 
 function renderComparisonBar() {
   const bar = document.getElementById('comparison-bar');
-  const itemsContainer = document.getElementById('comparison-items');
-  const compareBtn = document.getElementById('compare-btn');
-
-  if (state.comparisonItems.length === 0 && !state.batterUpItem) {
-    bar.classList.remove('active');
-    return;
-  }
-
-  bar.classList.add('active');
-
-  let html = '';
-
-  // Render comparison items (max 2)
-  html += state.comparisonItems.map(tool => `
-    <div class="comparison-item">
-      <span>${tool.icon} ${tool.name}</span>
-      <button class="remove-comparison" onclick="toggleComparison(${tool.id})" title="Remove from comparison">×</button>
-    </div>
-  `).join('');
-
-  // Render batter up item
-  if (state.batterUpItem) {
-    html += `
-      <div class="comparison-item batter-up-item">
-        <span>⚾ ${state.batterUpItem.icon} ${state.batterUpItem.name}</span>
-        <button class="remove-comparison" onclick="removeBatterUp()" title="Remove from batter up">×</button>
-      </div>
-    `;
-  }
-
-  itemsContainer.innerHTML = html;
-  compareBtn.disabled = state.comparisonItems.length < 2;
+  // Disable comparison bar - using Batter Up modal instead
+  if (bar) bar.style.display = 'none';
+  return;
 }
+
 
 function renderComparisonModal() {
   const modal = document.getElementById('comparison-modal');
@@ -1972,8 +1944,20 @@ function renderComparisonModal() {
     return;
   }
 
-  grid.innerHTML = state.comparisonItems.map(tool => `
-    <div class="comparison-card">
+  // Combine items: Champions + Challenger (Batter Up)
+  let itemsToRender = [...state.comparisonItems];
+  if (state.batterUpItem) {
+    itemsToRender.push(state.batterUpItem);
+  }
+
+  grid.innerHTML = itemsToRender.map((tool, index) => {
+    const isBatterUp = state.batterUpItem && tool.id === state.batterUpItem.id;
+    const cardClass = isBatterUp ? 'comparison-card challenger-card' : 'comparison-card';
+    const statusLabel = isBatterUp ? '<div class="challenger-badge">⚾ Batter Up (Challenger)</div>' : '<div class="champion-badge">👑 Champion</div>';
+
+    return `
+    <div class="${cardClass}">
+      ${statusLabel}
       <div class="comparison-card-header">
         <div class="product-icon">${tool.icon}</div>
         <h4>${tool.name}</h4>
@@ -1996,64 +1980,31 @@ function renderComparisonModal() {
         
         <div class="comparison-metric">
           <div class="comparison-metric-label">Rating</div>
-          <div class="comparison-metric-value">${tool.rating}/5 ⭐ (${tool.reviewCount.toLocaleString()} reviews)</div>
-          <div class="comparison-bar-visual">
-            <div class="comparison-bar-fill" style="width: ${tool.rating * 20}%"></div>
-          </div>
+          <div class="comparison-metric-value">${tool.rating}/5 ⭐ (${tool.reviewCount.toLocaleString()})</div>
         </div>
         
         <div class="comparison-metric">
           <div class="comparison-metric-label">Ethical Score</div>
           <div class="comparison-metric-value">${tool.ethical}/5 🌱</div>
-          <div class="comparison-bar-visual">
-            <div class="comparison-bar-fill" style="width: ${tool.ethical * 20}%"></div>
-          </div>
-          <div style="font-size: 0.875rem; color: var(--color-text-muted); margin-top: 0.25rem;">
-            ${tool.ethicalDetails}
-          </div>
-        </div>
-        
-        <div class="comparison-metric">
-          <div class="comparison-metric-label">Performance</div>
-          <div class="comparison-metric-value">${tool.performance}/5 🚀</div>
-          <div class="comparison-bar-visual">
-            <div class="comparison-bar-fill" style="width: ${tool.performance * 20}%"></div>
-          </div>
-        </div>
-        
-        <div class="comparison-metric">
-          <div class="comparison-metric-label">Ease of Use</div>
-          <div class="comparison-metric-value">${tool.easeOfUse}/5 🎨</div>
-          <div class="comparison-bar-visual">
-            <div class="comparison-bar-fill" style="width: ${tool.easeOfUse * 20}%"></div>
-          </div>
         </div>
         
         <div class="comparison-metric">
           <div class="comparison-metric-label">Features</div>
           <div class="comparison-metric-value">${tool.features}/5 🔧</div>
-          <div class="comparison-bar-visual">
-            <div class="comparison-bar-fill" style="width: ${tool.features * 20}%"></div>
-          </div>
-          <div style="font-size: 0.875rem; color: var(--color-text-muted); margin-top: 0.5rem;">
-            ${tool.featuresList.slice(0, 5).join(' • ')}
-          </div>
         </div>
+
+        <!-- Action Buttons -->
+        ${isBatterUp
+        ? `<button disabled class="btn btn-secondary btn-full" style="margin-top: 1rem; opacity: 0.7;">Waiting for Spot...</button>`
+        : `<button onclick="toggleComparison(${tool.id})" class="btn btn-warning btn-full" style="margin-top: 1rem;">Release (Remove) ❌</button>`
+      }
         
-        <div class="comparison-metric">
-          <div class="comparison-metric-label">Support</div>
-          <div class="comparison-metric-value">${tool.support}/5 🏢</div>
-          <div class="comparison-bar-visual">
-            <div class="comparison-bar-fill" style="width: ${tool.support * 20}%"></div>
-          </div>
-        </div>
-        
-        <a href="${tool.website}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="margin-top: 1rem; text-decoration: none; display: block; text-align: center;">
-          Visit Website →
+        <a href="${tool.website}" target="_blank" rel="noopener noreferrer" class="btn btn-text" style="display: block; text-align: center; margin-top: 0.5rem;">
+          Visit Website ↗
         </a>
       </div>
     </div>
-  `).join('');
+  `}).join('');
 }
 
 function updateCategoryFilter() {
@@ -2079,19 +2030,20 @@ function toggleComparison(toolId) {
     // Adding to comparison
     if (state.comparisonItems.length < 2) {
       state.comparisonItems.push(tool);
-    } else {
-      // Already have 2, add to batter up
-      if (state.batterUpItem && state.batterUpItem.id === toolId) {
-        state.batterUpItem = null;
-      } else {
-        state.batterUpItem = tool;
+      // Auto-open modal when we hit 2 items
+      if (state.comparisonItems.length === 2) {
+        openComparisonModal();
       }
+    } else {
+      // 3rd item (Batter Up) - Auto-trigger modal tournament
+      state.batterUpItem = tool;
+      openComparisonModal();
     }
   } else {
-    // Removing from comparison
+    // Removing (Releasing a Champion)
     state.comparisonItems.splice(index, 1);
 
-    // If there's a batter up, move it to comparison
+    // If there's a batter up, they instantly take the spot
     if (state.batterUpItem) {
       state.comparisonItems.push(state.batterUpItem);
       state.batterUpItem = null;
@@ -2099,7 +2051,10 @@ function toggleComparison(toolId) {
   }
 
   renderProducts();
-  renderComparisonBar();
+  // Update modal if it's open (live tournament update)
+  if (document.getElementById('comparison-modal').classList.contains('active')) {
+    renderComparisonModal();
+  }
 }
 
 function removeBatterUp() {
