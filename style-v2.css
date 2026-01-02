@@ -907,17 +907,22 @@ body {
 /* Redefining Comparison Grid for Horizontal Mobile Swipe */
 @media (max-width: 768px) {
     .modal-overlay {
-        padding: 0;
-        align-items: flex-end;
-        /* Mobile drawer style */
-        overflow: hidden;
+        padding: 10px;
+        align-items: center !important;
+        /* Center to avoid 'stuck at bottom' issues */
+        justify-content: center !important;
+        overflow-y: auto !important;
+        /* Allow overlay scroll as a fallback */
     }
 
     .modal {
         width: 100% !important;
-        max-height: 85vh !important;
-        border-radius: 20px 20px 0 0 !important;
-        margin: 0 !important;
+        max-height: 80vh !important;
+        /* Slightly shorter for better vertical clearance */
+        border-radius: var(--radius-xl) !important;
+        /* Back to full rounds */
+        margin: auto !important;
+        position: relative;
     }
 
     .modal-body {
