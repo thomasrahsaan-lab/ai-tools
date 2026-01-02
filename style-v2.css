@@ -918,8 +918,10 @@ body {
 
     .modal-body {
         padding: 10px !important;
-        overflow-x: hidden !important;
-        /* Contain the horizontal swipe container */
+        overflow-y: auto !important;
+        overflow-x: visible !important;
+        /* Allow child grid to swipe */
+        -webkit-overflow-scrolling: touch !important;
     }
 
     .comparison-grid {
