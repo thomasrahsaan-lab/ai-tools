@@ -907,40 +907,47 @@ body {
 /* Redefining Comparison Grid for Horizontal Mobile Swipe */
 @media (max-width: 768px) {
     .modal-overlay {
-        padding: 5px;
+        display: flex;
+        padding: 0;
+        align-items: flex-end;
+        /* Mobile drawer style */
+        overflow: hidden;
     }
 
     .modal {
         width: 100% !important;
-        max-height: 95vh !important;
-        border-radius: var(--radius-lg);
+        max-height: 90vh !important;
+        border-radius: 20px 20px 0 0 !important;
+        margin: 0 !important;
+        display: flex;
+        flex-direction: column;
     }
 
     .modal-body {
-        padding: 10px !important;
-        overflow-y: auto !important;
-        overflow-x: visible !important;
-        /* Allow child grid to swipe */
+        padding: 15px !important;
+        overflow-x: auto !important;
+        /* The BODY will handle the swipe */
+        overflow-y: hidden !important;
         -webkit-overflow-scrolling: touch !important;
+        flex: 1;
     }
 
     .comparison-grid {
         display: flex !important;
         flex-direction: row !important;
         flex-wrap: nowrap !important;
-        overflow-x: auto !important;
-        -webkit-overflow-scrolling: touch !important;
-        gap: 15px !important;
-        padding-bottom: 20px !important;
-        scroll-snap-type: x mandatory !important;
-        width: 100% !important;
-        cursor: grab;
+        gap: 12px !important;
+        width: fit-content !important;
+        /* Let it expand beyond 100% */
+        padding-bottom: 10px !important;
     }
 
     .comparison-card {
-        flex: 0 0 85% !important;
-        scroll-snap-align: center !important;
-        min-width: 270px !important;
+        flex: 0 0 calc(90vw - 30px) !important;
+        /* Take up 90% of viewport width */
+        min-width: 280px !important;
+        margin: 0 !important;
+        pointer-events: auto !important;
     }
 
     .champion-badge,
@@ -956,5 +963,14 @@ body {
 
     .lean-metric-description {
         display: none !important;
+    }
+
+    /* Fix to ensure buttons in modal are clickable */
+    .modal-header {
+        padding: 1rem !important;
+    }
+
+    .modal-title {
+        font-size: 1.25rem !important;
     }
 }
