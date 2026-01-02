@@ -604,15 +604,16 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(0, 0, 0, 0.95);
     display: none;
-    align-items: flex-start;
-    /* Better for long content on mobile */
+    align-items: center;
+    /* Center vertically if content small */
     justify-content: center;
-    z-index: 2000;
-    padding: var(--spacing-sm);
+    z-index: 5000;
+    /* Extremely high to overrule everything */
+    padding: var(--spacing-md);
     overflow-y: auto;
-    /* Allow overlay itself to scroll if needed */
+    /* Master vertical scroll */
 }
 
 .modal-overlay.active {
@@ -904,15 +905,23 @@ body {
 
 /* Redefining Comparison Grid for Horizontal Mobile Swipe */
 @media (max-width: 768px) {
+    .modal-overlay {
+        align-items: flex-start;
+        /* Switch to top for mobile to allow natural scroll */
+        padding: 10px;
+    }
+
     .modal {
-        width: 95% !important;
-        margin: auto !important;
+        width: 100% !important;
+        margin: 20px 0 !important;
+        border-radius: var(--radius-lg);
+        max-height: none !important;
+        background: var(--color-bg-elevated);
     }
 
     .modal-body {
-        padding: 10px !important;
-        overflow-x: hidden !important;
-        /* Contain the swipe */
+        padding: 12px !important;
+        overflow: visible !important;
     }
 
     .comparison-grid {
@@ -920,28 +929,41 @@ body {
         flex-direction: row !important;
         flex-wrap: nowrap !important;
         overflow-x: auto !important;
-        -webkit-overflow-scrolling: touch !important;
-        gap: 15px !important;
-        padding-bottom: 20px !important;
+        gap: 12px !important;
+        padding: 5px 5px 20px 5px !important;
         scroll-snap-type: x mandatory !important;
         width: 100% !important;
+        -webkit-overflow-scrolling: touch !important;
+        position: relative;
     }
 
     .comparison-card {
-        flex: 0 0 280px !important;
-        /* Fixed width for consistency */
+        flex: 0 0 88% !important;
+        /* Show most of card, peek at next */
         scroll-snap-align: center !important;
-        position: relative !important;
+        min-width: 280px !important;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        position: relative;
+        background: rgba(255, 255, 255, 0.03);
     }
 
     .champion-badge,
     .challenger-badge {
-        font-size: 0.7rem !important;
-        padding: 2px 8px !important;
+        font-size: 0.65rem !important;
+        white-space: nowrap;
     }
 
     .btn-sm {
-        font-size: 0.8rem !important;
-        padding: 8px !important;
+        padding: 12px !important;
+        font-size: 0.9rem !important;
+    }
+
+    .lean-metric-description {
+        display: none;
+        /* Hide description on mobile to save massive vertical space */
+    }
+
+    .modal-actions .btn-text {
+        font-size: 0.8rem;
     }
 }
