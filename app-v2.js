@@ -1362,6 +1362,7 @@ const aiTools = [
     price: 'Freemium',
     priceValue: 2,
     pricingDetails: 'Free tier, Standard at $28/mo',
+    affiliateLink: 'https://fliki.ai/?via=rahsaan',
     rating: 4.6,
     reviewCount: 3800,
     ethical: 4.2,
@@ -2231,3 +2232,54 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+// ============================================
+// Email Capture Logic (Save My Stack)
+// ============================================
+
+function handleSaveStack() {
+  // Check if user has already given email
+  const userEmail = localStorage.getItem('ai-finder-newsletter');
+
+  if (userEmail) {
+    // If email exists, proceed directly to export
+    saveStack(userEmail);
+  } else {
+    // Show modal to capture email
+    const modal = document.getElementById('email-modal');
+    modal.classList.add('active');
+  }
+}
+
+function closeEmailModal() {
+  const modal = document.getElementById('email-modal');
+  modal.classList.remove('active');
+}
+
+function handleEmailSubmit(e) {
+  e.preventDefault();
+  const emailInput = document.getElementById('stack-email');
+  const email = emailInput.value;
+
+  if (email) {
+    // Save email to localStorage
+    localStorage.setItem('ai-finder-newsletter', email);
+
+    // Close modal
+    closeEmailModal();
+
+    // Proceed to save stack
+    saveStack(email);
+  }
+}
+
+function saveStack(email) {
+  // Simulate API call / PDF generation
+  alert(`Success! 🚀\n\nYour AI Stack has been compiled.\nSending PDF to: ${email}`);
+
+  // In a real app, this would trigger:
+  // 1. POST request to backend with tool IDs + Email
+  // 2. Email trigger via SendGrid/Mailchimp
+  console.log('Stack saved for:', email);
+  console.log('Tools:', state.comparisonItems.length > 0 ? state.comparisonItems : 'All favorites');
+}

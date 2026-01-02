@@ -732,3 +732,71 @@ body {
         flex-direction: column;
     }
 }
+
+/* ============================================
+   Email Capture Modal
+   ============================================ */
+.glass-modal {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    border-radius: 24px;
+    padding: 2.5rem;
+    max-width: 480px;
+    text-align: center;
+}
+
+.modal-content-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.modal-icon {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.modal-input {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    margin-bottom: 1rem;
+}
+
+.modal-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+    outline: none;
+}
+
+.btn-full {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+}
+
+.micro-text {
+    font-size: 0.8rem;
+    color: #64748b;
+    margin-top: 0.5rem;
+}
+
+/* Save Stack Button Animation */
+#save-stack-btn {
+    background: linear-gradient(135deg, #6366f1 0%, #4338ca 100%);
+    border: none;
+    box-shadow: 0 4px 6px -1px rgba(99, 102, 241, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#save-stack-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px -1px rgba(99, 102, 241, 0.4);
+}
