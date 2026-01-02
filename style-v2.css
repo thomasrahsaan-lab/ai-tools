@@ -27,6 +27,10 @@
     --spacing-xl: 2rem;
     --spacing-2xl: 3rem;
 
+    /* Modal Mobile Formatting */
+    --modal-vertical-offset: 0vh;
+    --modal-bottom-offset: 6vh;
+
     /* Border radius */
     --radius-sm: 0.5rem;
     --radius-md: 0.75rem;
@@ -632,11 +636,14 @@ body {
 }
 
 .modal-header {
-    padding: var(--spacing-lg);
-    border-bottom: 1px solid rgba(99, 102, 241, 0.2);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    padding: var(--spacing-md) !important;
+}
+
+padding: var(--spacing-lg);
+border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+display: flex;
+justify-content: space-between;
+align-items: center;
 }
 
 .modal-title {
@@ -904,33 +911,28 @@ body {
     font-size: 0.875rem;
 }
 
+/* Mobile Adjustment Control */
+.mobile-adjustment-control {
+    display: none;
+}
+
 /* Redefining Comparison Grid for Horizontal Mobile Swipe */
 @media (max-width: 768px) {
     .modal-overlay {
-        padding: 10px;
-        align-items: center !important;
-        /* Center to avoid 'stuck at bottom' issues */
+        padding: 0 !important;
+        padding-top: 0vh !important;
+        padding-bottom: 6vh !important;
+        align-items: flex-start !important;
         justify-content: center !important;
         overflow-y: auto !important;
-        /* Allow overlay scroll as a fallback */
-    }
-
-    .modal {
-        width: 100% !important;
-        max-height: 80vh !important;
-        /* Slightly shorter for better vertical clearance */
-        border-radius: var(--radius-xl) !important;
-        /* Back to full rounds */
-        margin: auto !important;
-        position: relative;
     }
 
     .modal-body {
-        padding: 15px !important;
+        padding: 5px 15px 15px 15px !important;
         overflow-y: auto !important;
-        /* Allow vertical scroll for stats */
         overflow-x: hidden !important;
         -webkit-overflow-scrolling: touch !important;
+        margin-bottom: 4vh !important;
     }
 
     .comparison-grid {
@@ -947,7 +949,6 @@ body {
 
     .comparison-card {
         flex: 0 0 82% !important;
-        /* Ensure 82% width so 18% of next card peeks through */
         scroll-snap-align: center !important;
         min-width: 260px !important;
         pointer-events: auto !important;
@@ -968,8 +969,155 @@ body {
         display: none !important;
     }
 
-    /* Fix to ensure buttons in modal are clickable */
     .modal-header .modal-title {
         font-size: 1.25rem !important;
     }
+
+    .mobile-adjustment-control {
+        display: flex !important;
+        align-items: center;
+        gap: 0.5rem;
+        margin-right: auto;
+        margin-left: 1rem;
+    }
+}
+
+.modal-overlay {
+    padding: 0 !important;
+    padding-top: var(--modal-vertical-offset) !important;
+    padding-bottom: var(--modal-bottom-offset) !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+    overflow-y: auto !important;
+}
+
+.modal {
+    width: 100% !important;
+    max-height: 80vh !important;
+    border-radius: var(--radius-xl) !important;
+    margin: 0 !important;
+    position: relative;
+}
+
+.modal-body {
+    padding: 15px !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+}
+
+padding: 0 !important;
+align-items: flex-start !important;
+justify-content: center !important;
+overflow-y: auto !important;
+}
+
+.modal {
+    width: 100% !important;
+    max-height: 80vh !important;
+    border-radius: var(--radius-xl) !important;
+    margin: 0 !important;
+    position: relative;
+}
+
+.modal-body {
+    padding: 15px !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+}
+
+padding: 0 !important;
+align-items: flex-start !important;
+justify-content: center !important;
+overflow-y: auto !important;
+}
+
+.modal {
+    width: 100% !important;
+    max-height: 80vh !important;
+    border-radius: var(--radius-xl) !important;
+    margin: 0 !important;
+    position: relative;
+}
+
+.modal-body {
+    padding: 15px !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+}
+
+<<<<<<< HEAD padding: 10px;
+align-items: center !important;
+=======padding: 0 !important;
+align-items: flex-start !important;
+>>>>>>>47363d7 (Fix mobile modal top spacing)
+/* Center to avoid 'stuck at bottom' issues */
+justify-content: center !important;
+overflow-y: auto !important;
+/* Allow overlay scroll as a fallback */
+}
+
+.modal {
+    width: 100% !important;
+    max-height: 80vh !important;
+    /* Slightly shorter for better vertical clearance */
+    <<<<<<< HEAD border-radius: var(--radius-xl) !important;
+    /* Back to full rounds */
+    margin: auto !important;
+    =======align-self: flex-start !important;
+    margin-top: 0 !important;
+    /* Back to full rounds */
+    margin: 0 auto !important;
+    >>>>>>>47363d7 (Fix mobile modal top spacing) position: relative;
+}
+
+.modal-body {
+    padding: 15px !important;
+    overflow-y: auto !important;
+    /* Allow vertical scroll for stats */
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+}
+
+.comparison-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    gap: 15px !important;
+    padding-bottom: 20px !important;
+    scroll-snap-type: x mandatory !important;
+    width: 100% !important;
+    touch-action: pan-x !important;
+}
+
+.comparison-card {
+    flex: 0 0 82% !important;
+    /* Ensure 82% width so 18% of next card peeks through */
+    scroll-snap-align: center !important;
+    min-width: 260px !important;
+    pointer-events: auto !important;
+}
+
+.champion-badge,
+.challenger-badge {
+    font-size: 0.7rem !important;
+    padding: 4px 10px !important;
+}
+
+.btn-sm {
+    padding: 12px !important;
+    font-size: 1rem !important;
+}
+
+.lean-metric-description {
+    display: none !important;
+}
+
+/* Fix to ensure buttons in modal are clickable */
+.modal-header .modal-title {
+    font-size: 1.25rem !important;
+}
 }

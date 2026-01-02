@@ -157,6 +157,10 @@
         <div class="modal">
             <div class="modal-header">
                 <h2 class="modal-title">Compare AI Tools</h2>
+                <div class="mobile-adjustment-control" id="modal-adjustment-control">
+                    <label for="modal-offset-slider">↕</label>
+                    <input type="range" id="modal-offset-slider" min="0" max="15" step="0.5" value="0">
+                </div>
                 <div class="modal-actions">
                     <button class="btn-text" onclick="exportComparison()">📄 Export</button>
                     <button id="close-modal" class="close-modal" onclick="resetComparison()">×</button>

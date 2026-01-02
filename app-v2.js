@@ -2180,10 +2180,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-
       closeComparisonModal();
     }
   });
+
+  // Mobile Modal Adjustment Logic
+  const modalOffsetSlider = document.getElementById('modal-offset-slider');
+  if (modalOffsetSlider) {
+    // Load saved offset or default to 0
+    const savedOffset = localStorage.getItem('ai-finder-modal-offset') || '0';
+    document.documentElement.style.setProperty('--modal-vertical-offset', savedOffset + 'vh');
+    modalOffsetSlider.value = savedOffset;
+
+    // Listen for changes
+    modalOffsetSlider.addEventListener('input', (e) => {
+      const offset = e.target.value;
+      document.documentElement.style.setProperty('--modal-vertical-offset', offset + 'vh');
+      localStorage.setItem('ai-finder-modal-offset', offset);
+    });
+  }
 });
 
 // ============================================
