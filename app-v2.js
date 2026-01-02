@@ -70,7 +70,8 @@ const aiTools = [
     support: 4.5,
     supportDetails: 'Extensive documentation, community support',
     useCases: ['Content Creator', 'Software Developer', 'Marketing Professional', 'Student', 'Researcher'],
-    integrations: ['API', 'Mobile apps', 'Web interface']
+    integrations: ['API', 'Mobile apps', 'Web interface'],
+    affiliateLink: null // Placeholder for future affiliate link
   },
   {
     id: 2,
@@ -261,6 +262,7 @@ const aiTools = [
     price: 'Paid',
     priceValue: 3,
     pricingDetails: 'Starting at $39/mo',
+    affiliateLink: 'https://www.jasper.ai/partners?authuser=0', // REPLACE THIS WITH YOUR PARTNERSTACK LINK
     rating: 4.4,
     reviewCount: 3210,
     ethical: 4.1,
@@ -2118,8 +2120,12 @@ function swapWithBatterUp(comparisonIndex) {
 
 function viewDetails(toolId) {
   const tool = aiTools.find(t => t.id === toolId);
-  if (tool && tool.website) {
-    window.open(tool.website, '_blank', 'noopener,noreferrer');
+  if (tool) {
+    // Affiliate Link Logic: Prioritize money link, fallback to website
+    const targetUrl = tool.affiliateLink || tool.website;
+    if (targetUrl) {
+      window.open(targetUrl, '_blank', 'noopener,noreferrer');
+    }
   }
 }
 
