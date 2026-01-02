@@ -906,72 +906,55 @@ body {
 /* Redefining Comparison Grid for Horizontal Mobile Swipe */
 @media (max-width: 768px) {
     .modal-overlay {
-        align-items: flex-start;
-        padding-top: 5vh;
+        align-items: flex-start !important;
+        padding: 10px !important;
+        z-index: 9999 !important;
     }
 
     .modal {
         width: 100% !important;
-        max-width: 100% !important;
         margin: 0 !important;
-        border-radius: 20px 20px 0 0;
-        position: relative;
-        max-height: none !important;
-        background: var(--color-bg-elevated);
+        border-radius: 12px !important;
+        overflow: hidden !important;
     }
 
     .modal-body {
         padding: 15px !important;
         overflow: visible !important;
+        -webkit-overflow-scrolling: touch !important;
     }
 
     .comparison-grid {
         display: flex !important;
         flex-direction: row !important;
         flex-wrap: nowrap !important;
-        overflow-x: auto !important;
-        scroll-snap-type: x mandatory !important;
+        overflow-x: scroll !important;
+        /* Force scroll */
         -webkit-overflow-scrolling: touch !important;
         gap: 15px !important;
-        padding-bottom: 30px !important;
+        padding-bottom: 25px !important;
+        scroll-snap-type: x mandatory !important;
         width: 100% !important;
+        touch-action: pan-x !important;
+        /* Force horizontal swipe */
         pointer-events: auto !important;
-        position: relative;
+        /* Ensure interaction */
     }
 
     .comparison-card {
         flex: 0 0 85% !important;
-        /* Forces cards side-by-side */
-        width: 85% !important;
         scroll-snap-align: center !important;
         min-width: 270px !important;
         pointer-events: auto !important;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        position: relative;
-        background: rgba(255, 255, 255, 0.03);
     }
 
     .champion-badge,
     .challenger-badge {
         font-size: 0.7rem !important;
-        top: -10px !important;
-        white-space: nowrap;
-    }
-
-    .btn-sm {
-        padding: 12px !important;
-        font-size: 0.9rem !important;
+        white-space: nowrap !important;
     }
 
     .lean-metric-description {
-        display: none;
-    }
-
-    .modal-actions .btn-text {
-        font-size: 0.8rem;
-    }
-
-    .modal-header .modal-title {
-        font-size: 1.25rem;
+        display: none !important;
     }
 }
