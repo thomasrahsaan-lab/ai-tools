@@ -593,37 +593,9 @@ body {
 /* ============================================
    Comparison Bar & Modal
    ============================================ */
+/* Comparison bar is obsolete in Batter Up Mode */
 .comparison-bar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: var(--color-bg-card);
-    border-top: 2px solid rgba(99, 102, 241, 0.3);
-    padding: var(--spacing-md);
-    transform: translateY(100%);
-    transition: var(--transition-base);
-    z-index: 100;
-}
-
-.comparison-bar.active {
-    transform: translateY(0);
-}
-
-.comparison-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: var(--spacing-md);
-}
-
-.comparison-items {
-    display: flex;
-    gap: var(--spacing-sm);
-    flex-wrap: wrap;
-    flex: 1;
+    display: none;
 }
 
 .modal-overlay {
@@ -632,12 +604,15 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.9);
     display: none;
-    align-items: center;
+    align-items: flex-start;
+    /* Better for long content on mobile */
     justify-content: center;
-    z-index: 200;
-    padding: var(--spacing-lg);
+    z-index: 2000;
+    padding: var(--spacing-sm);
+    overflow-y: auto;
+    /* Allow overlay itself to scroll if needed */
 }
 
 .modal-overlay.active {
@@ -650,8 +625,11 @@ body {
     border-radius: var(--radius-xl);
     max-width: 1000px;
     width: 100%;
-    max-height: 90vh;
-    overflow-y: auto;
+    margin: auto 0;
+    /* Vertical centering helper for flex-start */
+    max-height: none;
+    /* Let the overlay handle long scrolls */
+    overflow: visible;
 }
 
 .modal-header {
@@ -682,7 +660,7 @@ body {
 
 .comparison-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: var(--spacing-lg);
 }
 
@@ -735,7 +713,26 @@ body {
     }
 
     .comparison-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        /* Force 2 columns for comparison */
+        gap: var(--spacing-xs);
+        width: 100%;
+    }
+
+    .comparison-card {
+        padding: var(--spacing-sm);
+    }
+
+    .comparison-card h4 {
+        font-size: 1rem;
+    }
+
+    .comparison-metric-label {
+        font-size: 0.75rem;
+    }
+
+    .comparison-metric-value {
+        font-size: 0.875rem;
     }
 
     .newsletter-form {
@@ -858,4 +855,85 @@ body {
 #save-stack-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 8px -1px rgba(99, 102, 241, 0.4);
+}
+
+/* Lean Comparison Metrics (Mobile Friendly) */
+.comparison-metrics-lean {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    text-align: left;
+}
+
+.lean-metric {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 0.25rem;
+}
+
+.lean-metric .label {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+}
+
+.lean-metric .value {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.lean-metric-description {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    line-height: 1.4;
+    margin: 0.5rem 0;
+}
+
+.product-icon-small {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.btn-sm {
+    padding: 0.5rem;
+    font-size: 0.875rem;
+}
+
+/* Redefining Comparison Grid for Horizontal Mobile Swipe */
+@media (max-width: 768px) {
+    .comparison-grid {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        gap: var(--spacing-sm) !important;
+        padding: var(--spacing-md) !important;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        justify-content: flex-start !important;
+        width: 100vw;
+        margin-left: calc(-1 * var(--spacing-sm));
+        /* Counter padding */
+    }
+
+    .comparison-card {
+        flex: 0 0 85%;
+        /* Show 85% of card */
+        scroll-snap-align: center;
+        min-width: 280px;
+        position: relative;
+    }
+
+    .modal-body {
+        padding: var(--spacing-sm);
+        overflow-x: hidden;
+    }
+
+    .champion-badge,
+    .challenger-badge {
+        font-size: 0.7rem;
+        padding: 2px 8px;
+    }
 }

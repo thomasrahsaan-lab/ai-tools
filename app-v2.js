@@ -1953,54 +1953,44 @@ function renderComparisonModal() {
   grid.innerHTML = itemsToRender.map((tool, index) => {
     const isBatterUp = state.batterUpItem && tool.id === state.batterUpItem.id;
     const cardClass = isBatterUp ? 'comparison-card challenger-card' : 'comparison-card';
-    const statusLabel = isBatterUp ? '<div class="challenger-badge">⚾ Batter Up (Challenger)</div>' : '<div class="champion-badge">👑 Champion</div>';
+    const statusLabel = isBatterUp ? '<div class="challenger-badge">⚾ Challenger</div>' : '<div class="champion-badge">👑 Champ</div>';
 
     return `
     <div class="${cardClass}">
       ${statusLabel}
       <div class="comparison-card-header">
-        <div class="product-icon">${tool.icon}</div>
+        <div class="product-icon-small">${tool.icon}</div>
         <h4>${tool.name}</h4>
-        <div class="product-category">${tool.category}</div>
       </div>
       
-      <div class="comparison-metrics">
-        <div class="comparison-metric">
-          <div class="comparison-metric-label">Match Score</div>
-          <div class="comparison-metric-value">${(calculateScore(tool) * 100).toFixed(0)}%</div>
-          <div class="comparison-bar-visual">
-            <div class="comparison-bar-fill" style="width: ${calculateScore(tool) * 100}%"></div>
-          </div>
+      <div class="comparison-metrics-lean">
+        <div class="lean-metric">
+          <span class="label">Match</span>
+          <span class="value">${(calculateScore(tool) * 100).toFixed(0)}%</span>
         </div>
         
-        <div class="comparison-metric">
-          <div class="comparison-metric-label">Price</div>
-          <div class="comparison-metric-value">${tool.pricingDetails}</div>
+        <div class="lean-metric">
+          <span class="label">Price</span>
+          <span class="value">${tool.price}</span>
         </div>
         
-        <div class="comparison-metric">
-          <div class="comparison-metric-label">Rating</div>
-          <div class="comparison-metric-value">${tool.rating}/5 ⭐ (${tool.reviewCount.toLocaleString()})</div>
+        <div class="lean-metric">
+          <span class="label">Rating</span>
+          <span class="value">${tool.rating}/5 ⭐</span>
         </div>
-        
-        <div class="comparison-metric">
-          <div class="comparison-metric-label">Ethical Score</div>
-          <div class="comparison-metric-value">${tool.ethical}/5 🌱</div>
-        </div>
-        
-        <div class="comparison-metric">
-          <div class="comparison-metric-label">Features</div>
-          <div class="comparison-metric-value">${tool.features}/5 🔧</div>
+
+        <div class="lean-metric-description">
+           ${tool.description.substring(0, 60)}...
         </div>
 
         <!-- Action Buttons -->
         ${isBatterUp
-        ? `<button disabled class="btn btn-secondary btn-full" style="margin-top: 1rem; opacity: 0.7;">Waiting for Spot...</button>`
-        : `<button onclick="toggleComparison(${tool.id})" class="btn btn-warning btn-full" style="margin-top: 1rem;">Release (Remove) ❌</button>`
+        ? `<button disabled class="btn btn-secondary btn-full btn-sm">Waiting...</button>`
+        : `<button onclick="toggleComparison(${tool.id})" class="btn btn-warning btn-full btn-sm">Release ❌</button>`
       }
         
-        <a href="${tool.website}" target="_blank" rel="noopener noreferrer" class="btn btn-text" style="display: block; text-align: center; margin-top: 0.5rem;">
-          Visit Website ↗
+        <a href="${tool.website}" target="_blank" rel="noopener noreferrer" class="btn btn-text btn-sm" style="display: block; text-align: center; margin-top: 0.5rem;">
+          Visit ↗
         </a>
       </div>
     </div>
@@ -2030,32 +2020,40 @@ function toggleComparison(toolId) {
     // Adding to comparison
     if (state.comparisonItems.length < 2) {
       state.comparisonItems.push(tool);
-      // Auto-open modal when we hit 2 items
-      if (state.comparisonItems.length === 2) {
-        openComparisonModal();
-      }
+      // Removed auto-open on 2nd selection as per user request
     } else {
       // 3rd item (Batter Up) - Auto-trigger modal tournament
       state.batterUpItem = tool;
       openComparisonModal();
     }
   } else {
-    // Removing (Releasing a Champion)
-    state.comparisonItems.splice(index, 1);
-
-    // If there's a batter up, they instantly take the spot
+    // Removing an item
     if (state.batterUpItem) {
+      // If there's a batter up, and we remove a champion, challenger takes the spot
+      state.comparisonItems.splice(index, 1);
       state.comparisonItems.push(state.batterUpItem);
       state.batterUpItem = null;
+    } else {
+      // If NO batter up and we are removing items, it triggers a FULL reset
+      resetComparison();
+      return;
     }
   }
 
   renderProducts();
-  // Update modal if it's open (live tournament update)
   if (document.getElementById('comparison-modal').classList.contains('active')) {
     renderComparisonModal();
   }
 }
+
+function resetComparison() {
+  state.comparisonItems = [];
+  state.batterUpItem = null;
+  closeComparisonModal();
+  renderProducts();
+  // Ensure any 'selected' UI states are cleared
+}
+
 
 function removeBatterUp() {
   state.batterUpItem = null;
