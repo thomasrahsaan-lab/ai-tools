@@ -1376,6 +1376,54 @@ const aiTools = [
     supportDetails: 'Good support, tutorials',
     useCases: ['Content Creator', 'Marketing Professional', 'Educator', 'Social Media Manager'],
     integrations: ['Web interface', 'Stock libraries']
+  },
+  {
+    id: 52,
+    name: 'OpenArt.ai',
+    category: 'Image Generation',
+    icon: '🎨',
+    description: 'Advanced AI art platform for professional creators. Features include model training, creative upscaler, and precise image editing.',
+    website: 'https://openart.ai/',
+    price: 'Freemium',
+    priceValue: 2,
+    pricingDetails: 'Free tier available, Starter at $12/mo',
+    rating: 4.7,
+    reviewCount: 5400,
+    ethical: 4.3,
+    ethicalDetails: 'Clear commercial usage rights on paid plans',
+    performance: 4.8,
+    performanceDetails: 'High quality with parallel generation capabilities',
+    easeOfUse: 4.6,
+    features: 4.9,
+    featuresList: ['Model Training', 'Creative Upscaler', 'Inpainting', 'Magic Brush', 'Sketch-to-Image'],
+    support: 4.4,
+    supportDetails: 'Community Discord and documentation',
+    useCases: ['Graphic Designer', 'Artist', 'Content Creator', 'Marketing Professional'],
+    integrations: ['Web interface', 'API access']
+  },
+  {
+    id: 53,
+    name: 'Hostinger',
+    category: 'Website Builder',
+    icon: '🌐',
+    description: 'AI-powered website builder that generates professional, responsive websites in minutes with built-in hosting.',
+    website: 'https://www.hostinger.com/web-hosting',
+    price: 'Paid',
+    priceValue: 3,
+    pricingDetails: 'Starting at $2.99/mo',
+    rating: 4.8,
+    reviewCount: 22100,
+    ethical: 4.6,
+    ethicalDetails: 'Data protection compliant, transparent pricing',
+    performance: 4.8,
+    performanceDetails: 'Fast loading sites, 99.9% uptime',
+    easeOfUse: 4.9,
+    features: 4.7,
+    featuresList: ['AI website generation', 'Drag-and-drop editor', 'SEO optimization', 'eCommerce tools', 'Free domain'],
+    support: 4.8,
+    supportDetails: '24/7 live chat support',
+    useCases: ['Entrepreneur', 'Content Creator', 'Marketing Professional', 'Student', 'Writer'],
+    integrations: ['WordPress', 'eCommerce payments', 'Google Analytics', 'Marketing tools']
   }
 ];
 
@@ -1395,15 +1443,15 @@ const priorityPresets = {
 // Career-Specific Category Mappings
 // ============================================
 const careerCategories = {
-  'Content Creator': ['Writing & Communication', 'Image Generation', 'Video Generation', 'Video & Audio Editing', 'Voice & Audio', 'Design'],
+  'Content Creator': ['Writing & Communication', 'Image Generation', 'Video Generation', 'Video & Audio Editing', 'Voice & Audio', 'Design', 'Website Builder'],
   'Video Editor': ['Video Generation', 'Video & Audio Editing', 'Voice & Audio'],
-  'Graphic Designer': ['Image Generation', 'Design'],
-  'Software Developer': ['Development', 'Writing & Communication', 'Productivity'],
-  'Marketing Professional': ['Writing & Communication', 'Image Generation', 'Video Generation', 'Design'],
-  'Writer': ['Writing & Communication', 'Research', 'Productivity'],
-  'Student': ['Writing & Communication', 'Research', 'Productivity'],
+  'Graphic Designer': ['Image Generation', 'Design', 'Website Builder'],
+  'Software Developer': ['Development', 'Writing & Communication', 'Productivity', 'Website Builder', 'Video & Audio Editing'],
+  'Marketing Professional': ['Writing & Communication', 'Image Generation', 'Video Generation', 'Design', 'Website Builder'],
+  'Writer': ['Writing & Communication', 'Research', 'Productivity', 'Website Builder'],
+  'Student': ['Writing & Communication', 'Research', 'Productivity', 'Website Builder', 'Design'],
   'Researcher': ['Research', 'Writing & Communication', 'Productivity'],
-  'Entrepreneur': ['Writing & Communication', 'Design', 'Productivity', 'Video Generation']
+  'Entrepreneur': ['Writing & Communication', 'Design', 'Productivity', 'Video Generation', 'Website Builder', 'Development']
 };
 
 // Video Editor specific subcategories
@@ -1797,7 +1845,7 @@ function sortTools(tools) {
 // ============================================
 function getCategoryOptions() {
   if (!state.selectedCareer || !careerCategories[state.selectedCareer]) {
-    return ['all', 'Writing & Communication', 'Image Generation', 'Video Generation', 'Video & Audio Editing', 'Development', 'Design', 'Productivity', 'Research', 'Voice & Audio'];
+    return ['all', 'Writing & Communication', 'Image Generation', 'Video Generation', 'Video & Audio Editing', 'Development', 'Design', 'Productivity', 'Research', 'Voice & Audio', 'Website Builder'];
   }
 
   return ['all', ...careerCategories[state.selectedCareer]];
