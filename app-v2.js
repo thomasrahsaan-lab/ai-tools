@@ -1376,6 +1376,30 @@ const aiTools = [
     supportDetails: 'Good support, tutorials',
     useCases: ['Content Creator', 'Marketing Professional', 'Educator', 'Social Media Manager'],
     integrations: ['Web interface', 'Stock libraries']
+  },
+  {
+    id: 52,
+    name: 'OpenArt.ai',
+    category: 'Image Generation',
+    icon: '🎨',
+    description: 'Advanced AI art platform for professional creators. Features include model training, creative upscaler, and precise image editing.',
+    website: 'https://openart.ai/',
+    price: 'Freemium',
+    priceValue: 2,
+    pricingDetails: 'Free tier available, Starter at $12/mo',
+    rating: 4.7,
+    reviewCount: 5400,
+    ethical: 4.3,
+    ethicalDetails: 'Clear commercial usage rights on paid plans',
+    performance: 4.8,
+    performanceDetails: 'High quality with parallel generation capabilities',
+    easeOfUse: 4.6,
+    features: 4.9,
+    featuresList: ['Model Training', 'Creative Upscaler', 'Inpainting', 'Magic Brush', 'Sketch-to-Image'],
+    support: 4.4,
+    supportDetails: 'Community Discord and documentation',
+    useCases: ['Graphic Designer', 'Artist', 'Content Creator', 'Marketing Professional'],
+    integrations: ['Web interface', 'API access']
   }
 ];
 
