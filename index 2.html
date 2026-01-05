@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Find the perfect AI tools with real cost comparisons. Step-by-step guidance to discover AI solutions that match your needs and budget.">
+    <title>AI Solutions Finder - Smart AI Tool Discovery</title>
+
+    <link rel="stylesheet" href="style-v2.css?v=4">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
+</head>
+
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content container">
+            <h1>AI Solutions Finder</h1>
+            <p>Find your perfect AI tool with real cost comparisons</p>
+            <div class="hero-search">
+                <input type="text" id="search-input" class="hero-search-input"
+                    placeholder="🔍 Search for any AI tool (e.g. 'Wix', 'Higgsfield')...">
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container section">
+
+        <!-- Progressive Disclosure Steps -->
+        <div class="progressive-steps">
+
+            <!-- Step 1: Career Selection -->
+            <div class="step-container" id="step-1" data-step="1">
+                <div class="step-label">Step 1</div>
+                <h2 class="step-title">I am a...</h2>
+                <select id="career-select" class="step-select">
+                    <option value="">Select your career or role</option>
+                    <option value="Content Creator">Content Creator</option>
+                    <option value="Video Editor">Video Editor</option>
+                    <option value="Graphic Designer">Graphic Designer</option>
+                    <option value="Software Developer">Software Developer</option>
+                    <option value="Marketing Professional">Marketing Professional</option>
+                    <option value="Writer">Writer</option>
+                    <option value="Student">Student</option>
+                    <option value="Researcher">Researcher</option>
+                    <option value="Entrepreneur">Entrepreneur</option>
+                    <option value="3D Artist">3D Artist</option>
+                </select>
+            </div>
+
+            <!-- Step 2: Category Selection -->
+            <div class="step-container step-hidden" id="step-2" data-step="2">
+                <div class="step-complete-badge" id="step-1-badge">
+                    <span class="complete-text" id="career-complete-text"></span>
+                    <button class="edit-btn" onclick="editStep(1)">Edit</button>
+                </div>
+                <div class="step-nav">
+                    <button class="btn-back" onclick="goBack(2)">← Back</button>
+                </div>
+                <div class="step-label">Step 2</div>
+                <h2 class="step-title">I'm looking for...</h2>
+                <select id="category-select" class="step-select">
+                    <option value="">Select a category</option>
+                </select>
+            </div>
+
+            <!-- Step 3: Priority Selection -->
+            <div class="step-container step-hidden" id="step-3" data-step="3">
+                <div class="step-complete-badge" id="step-2-badge">
+                    <span class="complete-text" id="category-complete-text"></span>
+                    <button class="edit-btn" onclick="editStep(2)">Edit</button>
+                </div>
+                <div class="step-nav">
+                    <button class="btn-back" onclick="goBack(3)">← Back</button>
+                </div>
+                <div class="step-label">Step 3</div>
+                <h2 class="step-title">What matters most to you?</h2>
+                <select id="priority-select" class="step-select">
+                    <option value="">Select your priority</option>
+                    <option value="balanced">Balanced - All-around quality</option>
+                    <option value="budgetFriendly">Budget-Friendly - Best value for money 💰</option>
+                    <option value="topRated">Top-Rated - Highest quality ⭐</option>
+                    <option value="ethical">Ethical & Privacy - Responsible AI 🌱</option>
+                    <option value="powerUser">Power User - Maximum features 🚀</option>
+                    <option value="beginner">Beginner-Friendly - Easy to use 🎨</option>
+                </select>
+            </div>
+
+        </div>
+
+        <!-- Step 4: Full Interface (Results) -->
+        <div class="results-section step-hidden" id="results-section">
+
+            <!-- Selection Summary -->
+            <div class="selection-summary">
+                <div class="summary-text">
+                    <span id="summary-career"></span> → <span id="summary-category"></span> → <span
+                        id="summary-priority"></span>
+                </div>
+                <div class="summary-actions">
+                    <button class="btn-text" onclick="goBack(4)">← Back</button>
+                    <button class="btn-text" onclick="resetAll()">🔄 Start Over</button>
+                </div>
+            </div>
+
+            <!-- Advanced Filters & Controls -->
+            <div class="controls-bar">
+                <div class="controls-left">
+                    <label class="toggle-control">
+                        <input type="checkbox" id="free-tier-toggle">
+                        <span>🆓 Free tier only</span>
+                    </label>
+                    <label class="toggle-control">
+                        <input type="checkbox" id="favorites-toggle">
+                        <span>❤️ My favorites</span>
+                    </label>
+                </div>
+                <div class="controls-right">
+                    <select id="sort-select" class="control-select">
+                        <option value="score">Sort: Best Match</option>
+                        <option value="value">Sort: Best Value 💎</option>
+                        <option value="rating">Sort: Rating</option>
+                        <option value="price-low">Sort: Price (Low-High)</option>
+                        <option value="name">Sort: Name</option>
+                    </select>
+
+                </div>
+            </div>
+
+            <!-- Results Count -->
+            <div class="results-header">
+                <h3 id="results-count">Loading...</h3>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="products-grid" id="products-grid"></div>
+
+            <!-- Newsletter Signup -->
+            <div class="newsletter-section">
+                <div class="newsletter-content">
+                    <h3>🔔 Stay Updated</h3>
+                    <p>Get notified about new AI tools, price changes, and exclusive deals</p>
+                    <form class="newsletter-form" id="newsletter-form">
+                        <input type="email" id="newsletter-email" name="email" placeholder="your@email.com" required>
+                        <button type="submit" class="btn-primary">Subscribe</button>
+                    </form>
+                    <div class="newsletter-success" id="newsletter-success">✓ Thanks! You're subscribed.</div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Comparison Bar (Fixed Bottom) -->
+    <div id="comparison-bar" class="comparison-bar">
+        <div class="comparison-content">
+            <div class="comparison-items" id="comparison-items"></div>
+            <button id="compare-btn" class="btn btn-primary">Compare Selected</button>
+        </div>
+    </div>
+
+    <!-- Comparison Modal -->
+    <div id="comparison-modal" class="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 class="modal-title">Compare AI Tools</h2>
+                <div class="mobile-adjustment-control" id="modal-adjustment-control">
+                    <label for="modal-offset-slider">↕</label>
+                    <input type="range" id="modal-offset-slider" min="0" max="15" step="0.5" value="0">
+                </div>
+                <div class="modal-actions">
+                    <button class="btn-text" onclick="exportComparison()">📄 Export</button>
+                    <button id="close-modal" class="close-modal" onclick="resetComparison()">×</button>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div id="comparison-grid" class="comparison-grid"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Affiliate Disclosure Footer -->
+    <footer class="affiliate-disclosure">
+        <div class="container">
+            <p>
+                💡 <strong>Transparency Notice:</strong> This site contains affiliate links.
+                We may earn a commission if you make a purchase at no additional cost to you.
+                Our credit value calculator and honest comparisons help you make informed decisions.
+            </p>
+        </div>
+        </p>
+        </div>
+    </footer>
+
+    <!-- Mobile Scroll Spacer -->
+    <div class="mobile-spacer"></div>
+
+    <script src="app-v2.js?v=4"></script>
+
+</body>
+
+</html>
