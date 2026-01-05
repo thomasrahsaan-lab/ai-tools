@@ -997,9 +997,9 @@ align-items: center;
 /* Navigation & Search Enhancements */
 /* Hero Search */
 .hero-search {
-    margin-top: 2rem;
+    margin: 2rem auto 0;
     width: 100%;
-    max-width: 600px;
+    max-width: 400px;
 }
 
 .hero-search-input {
