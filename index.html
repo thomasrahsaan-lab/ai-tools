@@ -8,7 +8,7 @@
         content="Find the perfect AI tools with real cost comparisons. Step-by-step guidance to discover AI solutions that match your needs and budget.">
     <title>AI Solutions Finder - Smart AI Tool Discovery</title>
 
-    <link rel="stylesheet" href="style-v2.css">
+    <link rel="stylesheet" href="style-v2.css?v=4">
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
 </head>
@@ -20,6 +20,10 @@
         <div class="hero-content container">
             <h1>AI Solutions Finder</h1>
             <p>Find your perfect AI tool with real cost comparisons</p>
+            <div class="hero-search">
+                <input type="text" id="search-input" class="hero-search-input"
+                    placeholder="🔍 Search for any AI tool (e.g. 'Wix', 'Higgsfield')...">
+            </div>
         </div>
     </section>
 
@@ -44,6 +48,7 @@
                     <option value="Student">Student</option>
                     <option value="Researcher">Researcher</option>
                     <option value="Entrepreneur">Entrepreneur</option>
+                    <option value="3D Artist">3D Artist</option>
                 </select>
             </div>
 
@@ -52,6 +57,9 @@
                 <div class="step-complete-badge" id="step-1-badge">
                     <span class="complete-text" id="career-complete-text"></span>
                     <button class="edit-btn" onclick="editStep(1)">Edit</button>
+                </div>
+                <div class="step-nav">
+                    <button class="btn-back" onclick="goBack(2)">← Back</button>
                 </div>
                 <div class="step-label">Step 2</div>
                 <h2 class="step-title">I'm looking for...</h2>
@@ -65,6 +73,9 @@
                 <div class="step-complete-badge" id="step-2-badge">
                     <span class="complete-text" id="category-complete-text"></span>
                     <button class="edit-btn" onclick="editStep(2)">Edit</button>
+                </div>
+                <div class="step-nav">
+                    <button class="btn-back" onclick="goBack(3)">← Back</button>
                 </div>
                 <div class="step-label">Step 3</div>
                 <h2 class="step-title">What matters most to you?</h2>
@@ -91,6 +102,7 @@
                         id="summary-priority"></span>
                 </div>
                 <div class="summary-actions">
+                    <button class="btn-text" onclick="goBack(4)">← Back</button>
                     <button class="btn-text" onclick="resetAll()">🔄 Start Over</button>
                 </div>
             </div>
@@ -115,7 +127,7 @@
                         <option value="price-low">Sort: Price (Low-High)</option>
                         <option value="name">Sort: Name</option>
                     </select>
-                    <input type="text" id="search-input" class="control-input" placeholder="🔍 Search...">
+
                 </div>
             </div>
 
@@ -133,7 +145,7 @@
                     <h3>🔔 Stay Updated</h3>
                     <p>Get notified about new AI tools, price changes, and exclusive deals</p>
                     <form class="newsletter-form" id="newsletter-form">
-                        <input type="email" id="newsletter-email" placeholder="your@email.com" required>
+                        <input type="email" id="newsletter-email" name="email" placeholder="your@email.com" required>
                         <button type="submit" class="btn-primary">Subscribe</button>
                     </form>
                     <div class="newsletter-success" id="newsletter-success">✓ Thanks! You're subscribed.</div>
@@ -188,7 +200,7 @@
     <!-- Mobile Scroll Spacer -->
     <div class="mobile-spacer"></div>
 
-    <script src="app-v2.js"></script>
+    <script src="app-v2.js?v=4"></script>
 
 </body>
 

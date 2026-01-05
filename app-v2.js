@@ -1381,6 +1381,7 @@ const aiTools = [
     id: 52,
     name: 'OpenArt.ai',
     category: 'Image Generation',
+    additionalCategories: ['Video Generation'],
     icon: '🎨',
     description: 'Advanced AI art platform for professional creators. Features include model training, creative upscaler, and precise image editing.',
     website: 'https://openart.ai/',
@@ -1424,6 +1425,351 @@ const aiTools = [
     supportDetails: '24/7 live chat support',
     useCases: ['Entrepreneur', 'Content Creator', 'Marketing Professional', 'Student', 'Writer'],
     integrations: ['WordPress', 'eCommerce payments', 'Google Analytics', 'Marketing tools']
+  },
+  {
+    id: 54,
+    name: 'Wix AI',
+    category: 'Website Builder',
+    icon: '✨',
+    description: 'Comprehensive AI site generator with text-to-site, image generation, and customization.',
+    website: 'https://www.wix.com/ai-website-builder',
+    price: 'Freemium',
+    priceValue: 2,
+    pricingDetails: 'Free plan available, Combo starts ~$17/mo',
+    rating: 4.7,
+    reviewCount: 45000,
+    ethical: 4.5,
+    ethicalDetails: 'Privacy focused, transparent AI usage',
+    performance: 4.8,
+    performanceDetails: 'Reliable hosting with 99.9% uptime',
+    easeOfUse: 4.8,
+    features: 4.9,
+    featuresList: ['Text-to-Website', 'AI Image Creator', 'AI Text Generator', 'SEO Wiz', 'Built-in Marketing'],
+    support: 4.7,
+    supportDetails: '24/7 support & Help Center',
+    useCases: ['Entrepreneur', 'Marketing Professional', 'Content Creator'],
+    integrations: ['Wix App Market', 'Social Media', 'Google Analytics']
+  },
+  {
+    id: 55,
+    name: '10Web',
+    category: 'Website Builder',
+    icon: '🚀',
+    description: 'AI-powered WordPress platform that builds or recreates any website in minutes.',
+    website: 'https://10web.io',
+    price: 'Paid',
+    priceValue: 3,
+    pricingDetails: 'Plans start ~$10/mo',
+    rating: 4.6,
+    reviewCount: 3200,
+    ethical: 4.4,
+    ethicalDetails: 'Standard data practices',
+    performance: 4.9,
+    performanceDetails: 'Google Cloud hosting, 90+ PageSpeed score',
+    easeOfUse: 4.5,
+    features: 4.8,
+    featuresList: ['AI Builder', 'AI Recreator', 'Automated Hosting', 'PageSpeed Booster', 'Ecommerce'],
+    support: 4.6,
+    supportDetails: 'Live chat, Facebook community',
+    useCases: ['Entrepreneur', 'Software Developer', 'Marketing Professional'],
+    integrations: ['WordPress Plugins', 'WooCommerce']
+  },
+  {
+    id: 56,
+    name: 'Framer',
+    category: 'Website Builder',
+    icon: '🎨',
+    description: 'Design-focused builder where you can design and publish with AI. Great for high-fidelity visuals.',
+    website: 'https://www.framer.com',
+    price: 'Freemium',
+    priceValue: 2,
+    pricingDetails: 'Free site plan, Mini starts ~$5/mo',
+    rating: 4.8,
+    reviewCount: 1500,
+    ethical: 4.5,
+    ethicalDetails: 'Good privacy controls',
+    performance: 4.9,
+    performanceDetails: 'Fast global hosting, optimized for visuals',
+    easeOfUse: 4.2,
+    features: 4.7,
+    featuresList: ['AI Layouts', 'Figma Import', 'Interactive Components', 'CMS', 'Localization'],
+    support: 4.5,
+    supportDetails: 'Community Discord, tutorials',
+    useCases: ['Graphic Designer', 'Content Creator', 'Marketing Professional'],
+    integrations: ['Figma', 'Typeform', 'HubSpot']
+  },
+  {
+    id: 57,
+    name: 'Durable',
+    category: 'Website Builder',
+    icon: '⚡',
+    description: 'Generates a fully designed website with copy, images, and a contact form in under 30 seconds.',
+    website: 'https://durable.co',
+    price: 'Paid',
+    priceValue: 3,
+    pricingDetails: 'Starter at $12/mo',
+    rating: 4.5,
+    reviewCount: 1800,
+    ethical: 4.3,
+    ethicalDetails: 'Standard policies',
+    performance: 4.7,
+    performanceDetails: 'Fast generation, reliable hosting',
+    easeOfUse: 5.0,
+    features: 4.4,
+    featuresList: ['Instant Generation', 'AI CRM', 'Invoicing', 'AI Blog Builder', 'Analytics'],
+    support: 4.6,
+    supportDetails: 'Email access support',
+    useCases: ['Entrepreneur', 'Marketing Professional', 'Content Creator'],
+    integrations: ['Zapier', 'Google Analytics']
+  },
+  {
+    id: 58,
+    name: 'Relume',
+    category: 'Website Builder',
+    icon: '🏗️',
+    description: 'AI-powered wireframing and sitemap tool. Exports to Figma and Webflow.',
+    website: 'https://www.relume.io',
+    price: 'Freemium',
+    priceValue: 2,
+    pricingDetails: 'Free plan active, Pro starts $32/mo',
+    rating: 4.8,
+    reviewCount: 950,
+    ethical: 4.5,
+    ethicalDetails: 'Respects design IP',
+    performance: 4.8,
+    performanceDetails: 'Fast export logic',
+    easeOfUse: 4.6,
+    features: 4.8,
+    featuresList: ['AI Sitemap', 'AI Wireframes', 'Figma Export', 'Webflow Export', 'Component Library'],
+    support: 4.7,
+    supportDetails: 'Slack Community, University',
+    useCases: ['Graphic Designer', 'Software Developer', 'Marketing Professional'],
+    integrations: ['Figma', 'Webflow']
+  },
+  {
+    id: 59,
+    name: 'Higgsfield',
+    category: 'Video Generation',
+    additionalCategories: ['Image Generation'],
+    icon: '🎬',
+    description: 'Generative video platform for creators. Create cinematic, controllable videos from text or images. Known for its "Diffuse" mobile app.',
+    website: 'https://higgsfield.ai',
+    price: 'Freemium',
+    priceValue: 2,
+    pricingDetails: 'Free credits available, Paid tiers for more',
+    rating: 4.6,
+    reviewCount: 850,
+    ethical: 4.4,
+    ethicalDetails: 'Focus on creator control',
+    performance: 4.8,
+    performanceDetails: 'High quality localized motion',
+    easeOfUse: 4.7,
+    features: 4.6,
+    featuresList: ['Text-to-Video', 'Image-to-Video', 'Cinematic Camera Control', 'Mobile App (Diffuse)', 'Character Animation'],
+    support: 4.5,
+    supportDetails: 'Community Discord',
+    useCases: ['Content Creator', 'Video Editor', 'Marketing Professional'],
+    integrations: ['Mobile', 'Discord']
+  },
+  {
+    id: 60,
+    name: 'Meshy',
+    category: '3D Generation',
+    additionalCategories: ['Image Generation', '2D to 3D'],
+    icon: '🧊',
+    description: 'Fast 3D model generator. Create 3D assets from text or images. Features AI texturing and smart remeshing.',
+    website: 'https://www.meshy.ai',
+    price: 'Freemium',
+    priceValue: 2,
+    pricingDetails: 'Free credits/mo, Pro from $16/mo',
+    rating: 4.8,
+    reviewCount: 1200,
+    ethical: 4.5,
+    ethicalDetails: 'Respects copyright, clear terms',
+    performance: 4.7,
+    performanceDetails: 'Production-ready meshes',
+    easeOfUse: 4.6,
+    features: 4.8,
+    featuresList: ['Text-to-3D', 'Image-to-3D', 'AI Texturing', 'Remeshing', 'GLB/FBX Export'],
+    support: 4.5,
+    supportDetails: 'Discord & Email',
+    useCases: ['3D Artist', 'Game Developer', 'Designer'],
+    integrations: ['Unity', 'Unreal', 'Blender']
+  },
+  {
+    id: 61,
+    name: 'Spline AI',
+    category: '3D Generation',
+    additionalCategories: ['Design'],
+    icon: '🔮',
+    description: 'Web-based 3D design tool with AI integration. Generate scenes, textures, and objects via prompts.',
+    website: 'https://spline.design/ai',
+    price: 'Freemium',
+    priceValue: 2,
+    pricingDetails: 'Free basic, Pro from $24/mo',
+    rating: 4.7,
+    reviewCount: 3500,
+    ethical: 4.4,
+    ethicalDetails: 'Standard creative tool policies',
+    performance: 4.6,
+    performanceDetails: 'Real-time web interactive',
+    easeOfUse: 4.5,
+    features: 4.7,
+    featuresList: ['Text-to-3D', 'Style Transfer', 'Interactive Web Export', 'Collaboration', 'Physics'],
+    support: 4.6,
+    supportDetails: 'Community, Docs, Tutorials',
+    useCases: ['3D Artist', 'Designer', 'Web Developer'],
+    integrations: ['React', 'Webflow', 'Next.js']
+  },
+  {
+    id: 62,
+    name: 'Luma Genie',
+    category: '3D Generation',
+    additionalCategories: ['Video Generation'],
+    icon: '🧞',
+    description: 'High-quality text-to-3D generation research preview by Luma AI. Known for fast and coherent outputs.',
+    website: 'https://lumalabs.ai/genie',
+    price: 'Free',
+    priceValue: 1,
+    pricingDetails: 'Currently free research preview',
+    rating: 4.5,
+    reviewCount: 950,
+    ethical: 4.3,
+    ethicalDetails: 'Research-focused',
+    performance: 4.6,
+    performanceDetails: 'Fast generation (seconds)',
+    easeOfUse: 4.8,
+    features: 4.4,
+    featuresList: ['Text-to-3D', 'Discord Bot', 'Web Interface', 'GLB Export'],
+    support: 4.2,
+    supportDetails: 'Discord Community',
+    useCases: ['3D Artist', 'Game Developer', 'Hobbyist'],
+    integrations: ['Discord', 'Web']
+  },
+  {
+    id: 63,
+    name: 'Tripo AI',
+    category: '3D Generation',
+    additionalCategories: ['2D to 3D'],
+    icon: '⚡',
+    description: 'Extremely fast API and web tool for generated 3D models. Great for prototyping and high-volume asset creation.',
+    website: 'https://www.tripo3d.ai',
+    price: 'Freemium',
+    priceValue: 2,
+    pricingDetails: 'Free web usage, API usage paid',
+    rating: 4.4,
+    reviewCount: 600,
+    ethical: 4.2,
+    ethicalDetails: 'Standard commercial rights',
+    performance: 4.8,
+    performanceDetails: 'Sub-minute generation',
+    easeOfUse: 4.7,
+    features: 4.3,
+    featuresList: ['Text-to-3D', 'Image-to-3D', 'Draft Quality (Fast)', 'API Access'],
+    support: 4.3,
+    supportDetails: 'Discord, Email',
+    useCases: ['3D Artist', 'Game Developer', 'Developer'],
+    integrations: ['API']
+  },
+  {
+    id: 64,
+    name: 'Masterpiece X',
+    category: '3D Generation',
+    additionalCategories: ['2D to 3D'],
+    icon: '🧗',
+    description: 'Generate complete 3D assets including mesh, textures, and animations. Focuses on game-ready characters/creatures.',
+    website: 'https://www.masterpiecex.com',
+    price: 'Freemium',
+    priceValue: 2,
+    pricingDetails: 'Free credits, subscription plans',
+    rating: 4.5,
+    reviewCount: 450,
+    ethical: 4.4,
+    ethicalDetails: 'Creator-focused',
+    performance: 4.5,
+    performanceDetails: 'Includes animation data',
+    easeOfUse: 4.6,
+    features: 4.7,
+    featuresList: ['Text-to-3D', 'Auto-Rigging', 'Animation', 'Game Ready Export'],
+    support: 4.4,
+    supportDetails: 'Help Center',
+    useCases: ['3D Artist', 'Game Developer', 'Animator'],
+    integrations: ['Unity', 'Unreal', 'Blender']
+  },
+  {
+    id: 65,
+    name: 'Rodin (Hyper)',
+    category: '3D Generation',
+    additionalCategories: ['2D to 3D'],
+    icon: '🗿',
+    description: 'Advanced generative 3D model by Hyperhuman. Focuses on realistic topology and geometry suitable for pro workflows.',
+    website: 'https://hyperhuman.deemos.com/rodin',
+    price: 'Paid',
+    priceValue: 3,
+    pricingDetails: 'Paid credits/subscription',
+    rating: 4.6,
+    reviewCount: 300,
+    ethical: 4.5,
+    ethicalDetails: 'Professional licensing',
+    performance: 4.9,
+    performanceDetails: 'High-fidelity geometry',
+    easeOfUse: 4.2,
+    features: 4.6,
+    featuresList: ['Text-to-3D', 'Image-to-3D', 'Quad Mesh Topology', 'PBR Materials'],
+    support: 4.5,
+    supportDetails: 'Professional Support',
+    useCases: ['3D Artist', 'Game Developer', 'VFX Artist'],
+    integrations: ['3D Software suites']
+  },
+  {
+    id: 66,
+    name: 'Kaedim',
+    category: '2D to 3D',
+    additionalCategories: ['3D Generation'],
+    icon: '🔷',
+    description: 'Production-ready AI that turns 2D images into high-fidelity 3D models. Capable of hard surface and organic shapes.',
+    website: 'https://www.kaedim3d.com',
+    price: 'Paid',
+    priceValue: 4,
+    pricingDetails: 'Startup/Studio plans',
+    rating: 4.7,
+    reviewCount: 400,
+    ethical: 4.5,
+    ethicalDetails: 'Professional data handling',
+    performance: 4.9,
+    performanceDetails: 'Production-ready topology',
+    easeOfUse: 4.4,
+    features: 4.8,
+    featuresList: ['Image-to-3D', 'UV Unwrapping', 'Automatic Texturing', 'Quad Topology'],
+    support: 4.8,
+    supportDetails: 'Dedicated Support',
+    useCases: ['3D Artist', 'Game Developer', 'VFX Artist'],
+    integrations: ['Blender', 'Unity', 'Unreal']
+  },
+  {
+    id: 67,
+    name: 'Alpha3D',
+    category: '2D to 3D',
+    additionalCategories: ['3D Generation'],
+    icon: '🅰️',
+    description: 'Generative AI for 3D game assets. Text and Image to 3D focused on AR/VR and gaming pipelines.',
+    website: 'https://www.alpha3d.io',
+    price: 'Freemium',
+    priceValue: 2,
+    pricingDetails: 'Free credits, subscription',
+    rating: 4.5,
+    reviewCount: 350,
+    ethical: 4.3,
+    ethicalDetails: 'Assets usage rights',
+    performance: 4.6,
+    performanceDetails: 'Optimized for Real-time',
+    easeOfUse: 4.7,
+    features: 4.5,
+    featuresList: ['Image-to-3D', 'Text-to-3D', 'GLB download', 'Game Ready'],
+    support: 4.4,
+    supportDetails: 'Community',
+    useCases: ['Game Developer', '3D Artist', 'AR/VR Dev'],
+    integrations: ['Unity', 'Snap AR', 'NVIDIA Omniverse']
   }
 ];
 
@@ -1451,7 +1797,8 @@ const careerCategories = {
   'Writer': ['Writing & Communication', 'Research', 'Productivity', 'Website Builder'],
   'Student': ['Writing & Communication', 'Research', 'Productivity', 'Website Builder', 'Design'],
   'Researcher': ['Research', 'Writing & Communication', 'Productivity'],
-  'Entrepreneur': ['Writing & Communication', 'Design', 'Productivity', 'Video Generation', 'Website Builder', 'Development']
+  'Entrepreneur': ['Writing & Communication', 'Design', 'Productivity', 'Video Generation', 'Website Builder', 'Development'],
+  '3D Artist': ['3D Generation', '2D to 3D', 'Image Generation', 'Design', 'Video Generation']
 };
 
 // Video Editor specific subcategories
@@ -1525,6 +1872,23 @@ function editStep(stepNumber) {
   } else if (stepNumber === 3) {
     progressiveState.selectedPriority = null;
     document.getElementById('priority-select').value = '';
+  }
+}
+
+
+function goBack(currentStep) {
+  if (currentStep === 2) {
+    document.getElementById('step-2').classList.add('step-hidden');
+    document.getElementById('step-1').classList.remove('step-hidden');
+  } else if (currentStep === 3) {
+    document.getElementById('step-3').classList.add('step-hidden');
+    document.getElementById('step-2').classList.remove('step-hidden');
+  } else if (currentStep === 4) {
+    document.getElementById('results-section').classList.add('step-hidden');
+    document.getElementById('step-3').classList.remove('step-hidden');
+
+    // Reset completeness if going back from results
+    progressiveState.isComplete = false;
   }
 }
 
@@ -1623,19 +1987,53 @@ function updateSelectionSummary() {
 }
 
 // Newsletter handling
-function handleNewsletterSubmit(e) {
+async function handleNewsletterSubmit(e) {
   e.preventDefault();
-  const email = document.getElementById('newsletter-email').value;
+  const emailInput = document.getElementById('newsletter-email');
+  const email = emailInput.value;
+  const form = document.getElementById('newsletter-form');
+  const btn = form.querySelector('button');
+  const originalText = btn.textContent;
 
-  // Store in localStorage to prevent repeat prompts
-  localStorage.setItem('ai-finder-newsletter', email);
+  // Visual feedback
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
 
-  // Show success message
-  document.getElementById('newsletter-success').classList.add('show');
-  document.getElementById('newsletter-form').style.display = 'none';
+  try {
+    const response = await fetch("https://formsubmit.co/ajax/rahsaanthepoet@gmail.com", {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        email: email,
+        _subject: "New AI Tools Newsletter Subscriber!",
+        _captcha: "false"
+      })
+    });
 
-  // In production, you would send this to your email service (Mailchimp, ConvertKit, etc.)
-  console.log('Newsletter signup:', email);
+    if (response.ok) {
+      // Store in localStorage to prevent repeat prompts
+      localStorage.setItem('ai-finder-newsletter', email);
+
+      // Show success message
+      document.getElementById('newsletter-success').classList.add('show');
+      form.style.display = 'none';
+
+      console.log('Newsletter signup sent for:', email);
+    } else {
+      console.error('FormSubmit error');
+      alert('Something went wrong. Please try again.');
+      btn.textContent = originalText;
+      btn.disabled = false;
+    }
+  } catch (error) {
+    console.error('Network Error:', error);
+    alert('Network error. Please try again.');
+    btn.textContent = originalText;
+    btn.disabled = false;
+  }
 }
 
 // Export comparison function
@@ -1770,7 +2168,8 @@ function filterTools() {
 
   if (state.filters.category !== 'all') {
     filtered = filtered.filter(tool =>
-      tool.category === state.filters.category
+      tool.category === state.filters.category ||
+      (tool.additionalCategories && tool.additionalCategories.includes(state.filters.category))
     );
   }
 
@@ -2202,8 +2601,16 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Search
+  // Search
   document.getElementById('search-input').addEventListener('input', (e) => {
-    state.filters.search = e.target.value;
+    state.filters.search = e.target.value.trim();
+
+    if (state.filters.search.length > 0) {
+      // Immediately show results
+      document.getElementById('results-section').classList.remove('step-hidden');
+      progressiveState.isComplete = true;
+    }
+
     renderProducts();
   });
 
