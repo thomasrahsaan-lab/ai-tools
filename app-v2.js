@@ -1387,7 +1387,7 @@ const aiTools = [
     website: 'https://openart.ai/',
     price: 'Freemium',
     priceValue: 2,
-    affiliateLink: 'https://openart.ai/partner', // optional affiliate link
+
     rating: 4.7,
     reviewCount: 5400,
     ethical: 4.3,
@@ -1411,7 +1411,7 @@ const aiTools = [
     website: 'https://www.hostinger.com/web-hosting',
     price: 'Paid',
     priceValue: 3,
-    pricingDetails: 'Starting at $2.99/mo',
+    affiliateLink: 'https://hostinger.com?REFERRALCODE=DW5RAHSAAQFK',
     rating: 4.8,
     reviewCount: 22100,
     ethical: 4.6,
