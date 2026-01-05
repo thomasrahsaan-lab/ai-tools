@@ -1387,7 +1387,7 @@ const aiTools = [
     website: 'https://openart.ai/',
     price: 'Freemium',
     priceValue: 2,
-    pricingDetails: 'Free tier available, Starter at $12/mo',
+    affiliateLink: 'https://openart.ai/partner', // optional affiliate link
     rating: 4.7,
     reviewCount: 5400,
     ethical: 4.3,
